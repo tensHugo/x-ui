@@ -287,6 +287,9 @@ func (s *Server) startTask() {
 	// 每 30 秒检查一次 xray 是否在运行
 	s.cron.AddJob("@every 30s", job.NewCheckXrayRunningJob())
 
+	//每天00:01分检查是否到流量重置日
+	s.cron.AddJob("0 1 0 * * ?", job.TrafficResetJob())
+
 	go func() {
 		time.Sleep(time.Second * 5)
 		// 每 10 秒统计一次流量，首次启动延迟 5 秒，与重启 xray 的时间错开
