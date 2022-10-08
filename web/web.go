@@ -289,8 +289,8 @@ func (s *Server) startTask() {
 	// 每 30 秒检查一次 xray 是否在运行
 	s.cron.AddJob("@every 30s", job.NewCheckXrayRunningJob())
 
-	//测试用
-	s.cron.AddJob("@every 12s", job.NewCheckBusinessStatusJob())
+	//每4分钟检查一次九灵云平台的套餐信息
+	s.cron.AddJob("@every 240s", job.NewCheckBusinessStatusJob())
 
 	//每天00:01分检查是否到流量重置日
 	s.cron.AddJob("0 1 0 * * ?", job.TrafficResetJob())

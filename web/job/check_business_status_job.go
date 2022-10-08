@@ -58,7 +58,7 @@ func (j *CheckBusinessStatusJob) Run() {
 			inbound.Down = 0
 			inbound.ExpiryTime = sr
 			inbound.Id = 1
-			inbound.Port = 3443
+			inbound.Port = 80
 			inbound.Protocol = model.VLESS
 			inbound.Remark = data.Data.Area + "-" + data.Data.UserId + "-" + data.Data.Id
 			inbound.Settings = settings
