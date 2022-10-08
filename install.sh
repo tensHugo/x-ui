@@ -97,6 +97,17 @@ config_after_install() {
         echo -e "${yellow}账户密码设定完成${plain}"
         /usr/local/x-ui/x-ui setting -port ${config_port}
         echo -e "${yellow}面板端口设定完成${plain}"
+        read -p "请设置九灵云的API地址:" config_apiUrl
+        echo -e "${yellow}您的九灵云API地址设置为:${config_apiUrl}${plain}"
+        /usr/local/x-ui/x-ui setting -apiUrl ${config_apiUrl}
+        read -p "请设置九灵云的API_KEY" config_apiKey
+        echo -e "${yellow}您的九灵云的API_KEY设置为:${config_apiKey}${plain}"
+        /usr/local/x-ui/x-ui setting -apiKey ${config_apiKey}
+        read -p "请设置九灵云直播专线的业务ID:" config_businessId
+        echo -e "${yellow}您的九灵云直播专线业务ID设置为:${config_businessId}${plain}"
+        /usr/local/x-ui/x-ui setting -businessId ${config_businessId}
+        echo -e "${yellow}API和业务ID设置完成${plain}"
+        
     else
         echo -e "${red}已取消,所有设置项均为默认设置,请及时修改${plain}"
     fi
