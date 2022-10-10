@@ -262,6 +262,14 @@ func (s *SettingService) SetBusinessId(businessId int) error {
 	return s.setInt("businessId", businessId)
 }
 
+func (s *SettingService) GetTrafficResetDay() (int, error) {
+	return s.getInt("trafficResetDay")
+}
+
+func (s *SettingService) SetTrafficResetDay(trafficResetDay int) error {
+	return s.setInt("trafficResetDay", trafficResetDay)
+}
+
 func (s *SettingService) GetCertFile() (string, error) {
 	return s.getString("webCertFile")
 }
